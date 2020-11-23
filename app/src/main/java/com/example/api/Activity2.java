@@ -2,11 +2,10 @@ package com.example.api;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.VoiceInteractor;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -20,40 +19,33 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity2 extends AppCompatActivity {
+    EditText editTextVille;
     private TextView nTextViewResult;
     private RequestQueue mQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_3);
 
+        editTextVille=(EditText)findViewById(R.id.editText);
         nTextViewResult = findViewById(R.id.text_view_result);
-        Button buttonParse = findViewById(R.id.button_parse);
+        Button buttonParseV = findViewById(R.id.button_parse_V);
 
         mQueue = Volley.newRequestQueue(this);
 
-        Button nextact = findViewById(R.id.button_activity);
-
-        nextact.setOnClickListener(new View.OnClickListener() {
+        buttonParseV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nextScreen = new Intent(getApplicationContext(), Activity2.class);
-                startActivity(nextScreen);
-            }
-        });
-
-        buttonParse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jsonParse();
+                String ville = editTextVille.getText().toString();
+                jsonParse(ville);
             }
         });
     }
 
-    private void jsonParse() {
-        String url = "http://192.168.1.70/server/apiLoclisation.php";
+    private void jsonParse(String ville) {
+        String url = "http://192.168.1.70/server/apiLoclisation.php?Ville=" + ville;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
