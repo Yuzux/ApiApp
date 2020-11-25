@@ -36,11 +36,20 @@ public class MainActivity extends AppCompatActivity {
         mQueue = Volley.newRequestQueue(this);
 
         Button nextact = findViewById(R.id.button_activity);
+        Button btnMap = findViewById(R.id.button_map);
 
         nextact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextScreen = new Intent(getApplicationContext(), Activity2.class);
+                startActivity(nextScreen);
+            }
+        });
+
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextScreen = new Intent(getApplicationContext(), Map.class);
                 startActivity(nextScreen);
             }
         });
