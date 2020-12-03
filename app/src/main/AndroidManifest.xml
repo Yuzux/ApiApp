@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.api">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,10 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Api"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Photo"></activity>
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_key"></meta-data>
-        <activity android:name=".Map"></activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
+        <activity android:name=".Map" />
         <activity android:name=".Activity2" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -27,6 +30,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

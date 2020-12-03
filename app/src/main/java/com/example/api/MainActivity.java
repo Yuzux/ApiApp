@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button nextact = findViewById(R.id.button_activity);
         Button btnMap = findViewById(R.id.button_map);
+        Button btnphoto = findViewById(R.id.button_app);
 
         nextact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent nextScreen = new Intent(getApplicationContext(), Map.class);
+                startActivity(nextScreen);
+            }
+        });
+
+        btnphoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextScreen = new Intent(getApplicationContext(), Photo.class);
                 startActivity(nextScreen);
             }
         });
